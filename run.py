@@ -22,9 +22,10 @@ def ssh_multiple_connections(hosts_info):
             users.append(user)
             hostnames.append(hostname)
             commands.append(command)
+            print(f"用户：{username}，执行 {command} 成功")
             ssh.close()
         except Exception as e:
-            print(f"用户：{username}，连接 {hostname} 时出错: {str(e)}")
+            print(f"用户：{username}，执行 {command} 时出错: {str(e)}")
     return users, hostnames, commands
 
 ssh_info_str = os.getenv('SSH_INFO', '[]')
